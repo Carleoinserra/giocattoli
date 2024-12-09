@@ -28,6 +28,19 @@ Inserisci il prezzo del gioco: <br>
 <input type = "submit" value = "Invia">
 </form>
 
+<h3>Cancella gioco</h3>
+<form action = "/delete" method = "POST">
+
+<select name = "nome">
+<option th:each="gioco : ${lista}" th:value = "${gioco.nome}" th:text = "${gioco.nome}">
+
+</select>
+
+<input type = "submit" value = "Invia">
+
+
+</form>
+
 
 
 

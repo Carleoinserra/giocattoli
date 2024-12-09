@@ -45,8 +45,8 @@ public class JdbcTemp {
      * che indica il numero di righe modificate (inserite).
      */
     public int insertGame(String nome, String marca, double prezzo, String url) {
-        String query = "INSERT INTO giocattoli (nome, marca, prezzo, url) VALUES (?, ?, ?, ?)";
-        return jdbcTemplateObject.update(query, nome, marca,  prezzo, url);
+        String query = "INSERT INTO giocattoli (nome, marca, prezzo, url, pezzi, pezziV) VALUES (?, ?, ?, ?,?,?)";
+        return jdbcTemplateObject.update(query, nome, marca,  prezzo, url, 50, 0);
         //jdbcTemplateObject tramite update si prende la query e i paramentri e va a fare l' update. ovvero lo fa tramite un preparedStatement
         //si fa il return perche update ritorna un rows ovvero le righe cambiate .. possiamo utilizzarlo per sapere quante righe sono cambiate per esempio.
         
@@ -70,6 +70,15 @@ public class JdbcTemp {
     	return jdbcTemplateObject.update(query, prezzo, nome);
     }
     
+    public int change(String nome, int pezzi) {
+    	
+    	String query = "UPDATE giocattoli SET pezzi = pezzi - (?) WHERE nome = (?)";
+    	jdbcTemplateObject.update(query, pezzi, nome);
+    	String query1 = "UPDATE giocattoli SET pezziV = pezziV + (?) WHERE nome = (?)";
+    	return jdbcTemplateObject.update(query1, pezzi, nome);
+    	
+    	
+    }
     
     /*
      * Metodo per ottenere una lista di tutti i pc presenti nel database.
