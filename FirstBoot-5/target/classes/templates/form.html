@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h3>Inserisci gioco</h3>
+<form action = "/submit" method = "POST">
+Inserisci il nome del gioco: <br>
+<input type = "text" name = "nome"><br>
+Inserisci la marca del gioco: <br>
+<input type = "text" name = "marca"><br>
+Inserisci il prezzo del gioco: <br>
+<input type = "number" name = "prezzo"><br>
+Inserisci la url del gioco: <br>
+<input type = "text" name = "url"><br>
+<input type = "submit" value = "Invia">
+
+
+</form>
+<h3>Aggiorna prezzo del gioco</h3>
+<form action = "/update"  method = "POST">
+Inserisci il nome del gioco: <br>
+<input type = "text" name = "nome"><br>
+Inserisci il prezzo del gioco: <br>
+<input type = "number" name = "prezzo"><br>
+<input type = "submit" value = "Invia">
+</form>
+
+
+
+
+</body>
+</html>
